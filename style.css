@@ -1,0 +1,1312 @@
+:root {
+    --neon-green: #B7FF70;
+    --dark: #1A1A1A;
+    --white: #FFFFFF;
+    --dot-color: #e5e5e5;
+    --green: #4f8d16;
+    --light-green: #87D234;
+    --light-green-shadow: #87D234;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+    /* Prevent horizontal scroll from any overflow */
+    overflow-x: hidden;
+}
+
+.main-content {
+    position: relative;
+}
+
+/* Fixed Navigation Button */
+.fixed-nav {
+    position: fixed;
+    top: -100px;
+    /* Hidden completely above the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    /* White base color for mix-blend-mode to invert perfectly */
+    mix-blend-mode: difference;
+    /* Realtime color inversion over the background */
+    z-index: 1000;
+    cursor: pointer;
+    transition: top 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+    /* Slower, smoother entry */
+    text-decoration: none;
+    letter-spacing: -0.05em;
+    pointer-events: auto;
+    user-select: none;
+}
+
+.fixed-nav.visible {
+    top: 30px;
+    /* Pops down into view, hanging below the 30px glass bar */
+}
+
+/* Glassy Blur Header */
+.glass-header {
+    position: fixed;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    /* Exact height requested */
+    background: rgba(255, 255, 255, 0.03);
+    /* Extremely subtle tint to catch light */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 500;
+    /* Behind fixed-nav (1000) but above sections (1-4) */
+    pointer-events: none;
+    transition: top 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.glass-header.visible {
+    top: 0;
+    /* Drops down seamlessly with the text */
+}
+
+/* Stacking effect: Sticky wrapper */
+.hero-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    /* Dotted background on the bottom most layer */
+    background-color: var(--white);
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 15px 15px;
+    background-position: center;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2rem;
+    position: relative;
+}
+
+/* ========================================= */
+/* BACKGROUND GRADIENTS (NEON GREEN SHADES)  */
+/* ========================================= */
+
+.top-gradients-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85vh;
+    /* Reaches down behind the hero but fades out */
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    display: none;
+    /* User disabled for now */
+    /* Soft fade perfectly to white at the bottom */
+    mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+    background: transparent;
+    /* No dark color, fades purely into var(--white) */
+}
+
+/* Add shiny glass reflection overlay */
+.noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Replaced grainy shade with a shiny glass finish */
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%);
+    mix-blend-mode: screen;
+    /* Boosts the bright shiny highlights dynamically over the colors */
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Gradient Blobs that flow and drop waves */
+.gradient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.9;
+    animation: flowWave 4s infinite alternate ease-in-out;
+    /* Accelerated native speed securely mapping request */
+}
+
+.blob-1 {
+    top: -150px;
+    left: -10%;
+    width: 70vw;
+    height: 500px;
+    background: #4ade80;
+    /* Deep vibrant green */
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    top: -200px;
+    left: 20%;
+    width: 60vw;
+    height: 600px;
+    background: #b7ff70;
+    /* Neon green (Pixcross main theme) */
+    animation-delay: -3s;
+    animation-duration: 7s;
+    /* Offset fluid speed */
+}
+
+.blob-3 {
+    top: -100px;
+    right: -10%;
+    width: 60vw;
+    height: 500px;
+    background: #86efac;
+    /* Bright light green */
+    animation-delay: -5s;
+    opacity: 0.6;
+}
+
+.blob-4 {
+    top: -180px;
+    left: 50%;
+    width: 70vw;
+    height: 550px;
+    background: #22c55e;
+    /* Rich lime green */
+    animation-delay: -2s;
+}
+
+/* Drops waves downwards randomly */
+.blob-5 {
+    top: -50px;
+    left: 35%;
+    width: 40vw;
+    height: 400px;
+    background: #d9f99d;
+    /* Pale mint green */
+    animation: dropWaves 1.5s infinite alternate ease-in-out;
+    /* Increased vertical drop speed heavily */
+}
+
+@keyframes flowWave {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(140px, -80px) scale(1.15) rotate(15deg);
+    }
+
+    66% {
+        transform: translate(-100px, 100px) scale(0.85) rotate(-10deg);
+    }
+
+    100% {
+        transform: translate(80px, -50px) scale(1.1) rotate(8deg);
+    }
+}
+
+@keyframes dropWaves {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(180px) scale(1.2);
+        opacity: 0.4;
+    }
+}
+
+/* Top brand text to match the provided image */
+.header-text {
+    position: relative;
+    /* Required to activate z-index */
+    margin-top: calc(4rem - 60px);
+    text-align: center;
+    z-index: 5;
+}
+
+.brand-title {
+    font-size: 6.5rem;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.brand-subtitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-top: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+/* Large central logo */
+.hero-logo {
+    position: relative;
+    /* Required to activate z-index */
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    margin-top: -8rem;
+    margin-left: 4rem;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Strong white up fade overlay */
+.white-fade {
+    position: absolute;
+    bottom: -5px;
+    /* Ensures no gap at the bottom */
+    left: 0;
+    width: 100%;
+    height: 60%;
+    /* Gradient from solid white at bottom to transparent at top */
+    background: linear-gradient(to top,
+            rgba(255, 255, 255, 1) 35%,
+            rgba(255, 255, 255, 0.8) 55%,
+            rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    pointer-events: none;
+    /* Let clicks pass through if needed */
+}
+
+/* Content container placed inside the white fade region */
+.fade-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3.5rem;
+    z-index: 20;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 2rem;
+    /* Valid padding to keep them away from the screen edges */
+    margin-bottom: 1rem;
+    /* Reduced from 3rem to push the buttons further down */
+}
+
+.btn {
+    background-color: var(--dark);
+    color: var(--white);
+    border: 2px solid var(--dark);
+    padding: 0.9rem 1.8rem;
+    border-radius: 9999px;
+    /* Fully rounded */
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+/* Carousel Section */
+.trusted-section {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+}
+
+.trusted-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 1.2rem;
+}
+
+.carousel-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    /* Side fades for the carousel */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.carousel-track {
+    display: inline-flex;
+    animation: scroll 25s linear infinite;
+    align-items: center;
+}
+
+.carousel-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--dark);
+    opacity: 0.6;
+    margin: 0 3rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Second Section (White with grid) */
+.second-section {
+    position: relative;
+    z-index: 2;
+    /* Stacks on top of sticky hero wrapper */
+    background-color: var(--white);
+    min-height: 100vh;
+    border-radius: 0 0 0 0;
+    /* Small grid pattern with low opacity */
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.08);
+    padding: 8rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Contains the blurry blobs */
+}
+
+/* Green blurry blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    /* Behind the content, but above the background grid */
+    opacity: 0.7;
+    transition: transform 15s ease-in-out;
+}
+
+.blob-1 {
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(134, 214, 54, 0.45) 0%, rgba(183, 255, 112, 0) 70%);
+    top: -10%;
+    right: 5%;
+    filter: blur(30px);
+}
+
+.blob-2 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(183, 255, 112, 0.25) 0%, rgba(183, 255, 112, 0) 70%);
+    bottom: -5%;
+    left: -5%;
+    filter: blur(20px);
+}
+
+@keyframes float-1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(60px, 40px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-40px, 80px) scale(0.95);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes float-2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(-50px, -60px) scale(0.95);
+    }
+
+    66% {
+        transform: translate(30px, -90px) scale(1.05);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Container */
+.second-container {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Text Side */
+.text-content {
+    flex: 1.2;
+    max-width: 700px;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.main-heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    margin: 0;
+    position: absolute;
+    top: 1rem;
+    /* Moved up as per mockup */
+    left: 0;
+}
+
+/* Scroll Fill Effect */
+.scroll-fill-container {
+    position: relative;
+}
+
+.scroll-fill-text {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.05;
+    margin: 0;
+    top: 2rem;
+    letter-spacing: -0.01em;
+    color: #cccccc;
+    /* Base light grey */
+    transition: color 0.2s ease;
+}
+
+.scroll-fill-text span {
+    transition: color 0.1s ease;
+}
+
+.scroll-fill-text span.filled {
+    color: #1e1e1e;
+    /* Final dark color */
+}
+
+/* Roll Up Footer */
+.roll-up-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 4rem;
+}
+
+.roll-up-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0;
+    overflow: hidden;
+    /* For the word slide up */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.roll-up-text.highlight {
+    color: var(--green);
+}
+
+.roll-up-word {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.roll-up-text.active .roll-up-word {
+    transform: translateY(0);
+}
+
+/* Image Side */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.desk-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    transform: scale(0.85) translateY(-30px);
+    /* Scaled down and moved up 30px */
+    transform-origin: right center;
+}
+
+/* Zoom Scroll Mechanics */
+.zoom-scroll-container {
+    position: relative;
+    /* Initially locked to 100vh to prevent scrolling past until monitor turns on */
+    height: 100vh;
+    width: 100%;
+}
+
+.third-section {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: var(--white);
+    height: 100vh;
+    /* Locked height for the sticky viewport */
+    border-radius: 0 0 0 0;
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Final Dissolve Frame */
+.dissolve-frame {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    width: 100%;
+    height: calc(100% + 5px);
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    /* Sits above EVERYTHING, directly inside third-section */
+    transition: opacity 0.8s ease;
+}
+
+/* Image Sequence Animation Canvas */
+.sequence-canvas {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    width: 100%;
+    height: calc(100% + 5px);
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 11;
+    /* Sits above the dissolve frame */
+    transition: opacity 0.8s ease;
+    /* Fade out the bottom edge to completely hide any background seam from the image frames */
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+.interactive-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 3;
+    /* Desk mask sits in front of the video and dissolve layers */
+
+    /* Prepare for massive hardware-accelerated zoom */
+    transform-origin: 50.4% 48.4%;
+    /* Calculated exactly to the center of the video screen hole */
+}
+
+.mondesk-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+    position: relative;
+    z-index: 5;
+    /* Layers over the background screen */
+    pointer-events: none;
+    /* Let clicks pass through if needed */
+}
+
+/* Monitor Screen Background (Sits behind transparent hole in image) */
+.monitor-screen {
+    position: absolute;
+    /* Calculated exactly from the transparent pixel bounds of desktop_transparent.png */
+    left: 36.61%;
+    top: 30.83%;
+    width: 27.75%;
+    height: 34%;
+    background-color: #000;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#static-canvas {
+    position: absolute;
+    top: 51.68%;
+    /* Mathematically calculated relative to the monitor-screen box */
+    left: 49.69%;
+    /* Mathematically calculated relative to the monitor-screen box */
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+#screen-video {
+    position: absolute;
+    top: 51.68%;
+    /* Mathematically calculated relative to the monitor-screen box */
+    left: 49.69%;
+    /* Mathematically calculated relative to the monitor-screen box */
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* CRT Turn On Animation */
+.crt-overlay {
+    position: absolute;
+    top: 51.68%;
+    /* Mathematically calculated relative to the monitor-screen box */
+    left: 49.69%;
+    /* Mathematically calculated relative to the monitor-screen box */
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.turning-on .crt-overlay {
+    animation: crt-flash 0.6s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+@keyframes crt-flash {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleY(0.01) scaleX(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scaleY(0.01) scaleX(1);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scaleY(1) scaleX(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleY(1) scaleX(1);
+    }
+}
+
+/* Cinematic Titles Phase 4 */
+.cinematic-titles {
+    position: absolute;
+    top: 75vh;
+    /* Increased gap to start further below the logo */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 12;
+    /* Above sequence canvas */
+    padding-bottom: 100px;
+    /* Exact 100px padding below Merchandise */
+}
+
+.titles-heading {
+    color: var(--neon-green);
+    font-size: 2rem;
+    /* Increased size */
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    /* Increased margin */
+    text-transform: lowercase;
+    opacity: 0;
+    /* Hidden initially */
+    transform: translateY(50px);
+    /* Pre-positioned for the rise up animation */
+}
+
+.titles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Tightly stacked */
+    width: 100%;
+    /* Take full width of parent */
+}
+
+.titles-list li {
+    color: var(--white);
+    font-size: 5rem;
+    /* Increased size */
+    font-weight: 800;
+    line-height: 1.05;
+    /* Tightly stacked visually */
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    opacity: 0;
+    /* Hidden initially */
+    transform: translateY(50px);
+    /* Pre-positioned for the rise up animation */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    width: 100%;
+    /* Span entire width to catch hovers anywhere on the line */
+    text-align: center;
+    /* Keep text centered */
+}
+
+/* Hover effects for the list removed as requested */
+
+/* Cursor Following Image Placeholder */
+.cursor-placeholder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 450px;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    /* translate positions it slightly down and right from the cursor tip */
+    transform: translate(15px, 15px) scale(0.8);
+    transition: opacity 0.3s cubic-bezier(0.2, 1, 0.3, 1), transform 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    will-change: transform, left, top;
+}
+
+.cursor-placeholder.active {
+    opacity: 1;
+    transform: translate(15px, 15px) scale(1);
+}
+
+.cursor-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Our Work Section & Infinity Carousel */
+.our-work-section {
+    background-color: var(--white);
+    padding: 10rem 0;
+    overflow: hidden;
+    /* Hide overflow from the sides of the carousel */
+    display: none;
+    /* Hidden until monitor is turned on */
+    position: relative;
+    z-index: 4;
+    /* Sits above the sticky hero-wrapper (z-index: 1) and third-section (z-index: 3) */
+}
+
+.our-work-section .section-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--dark);
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    letter-spacing: -0.02em;
+}
+
+.work-carousel-container {
+    width: 100vw;
+    overflow: hidden;
+    /* Hide the scrollbar, we manage scrolling via transform */
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+    /* Allow vertical scroll to pass through, but handle horizontal drag */
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100vw;
+}
+
+.carousel-oval {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    background-color: var(--white);
+    border-radius: 50%;
+    pointer-events: none;
+    /* Let clicks pass through to drag the carousel */
+    z-index: 10;
+}
+
+.top-oval {
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.bottom-oval {
+    bottom: 0;
+    transform: translateY(50%);
+}
+
+.work-carousel-container:active {
+    cursor: grabbing;
+}
+
+.work-carousel-track {
+    display: flex;
+    gap: 2rem;
+    /* Gap between images */
+    width: max-content;
+    will-change: transform;
+    /* Hardware acceleration for smooth drag */
+    padding: 0 2rem;
+    /* Initial side padding */
+}
+
+.carousel-item {
+    flex-shrink: 0;
+    width: 400px;
+    height: 400px;
+    background-color: #f0f0f0;
+    /* Placeholder color while loading */
+    border-radius: 0;
+    /* Roundness set to zero */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    /* Crucial for dragging: don't let the browser try to drag the image file */
+}
+
+/* Responsive carousel image sizing */
+@media (max-width: 768px) {
+    .carousel-item {
+        width: 250px;
+        height: 250px;
+    }
+
+    .our-work-section .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* Spring Switch Area */
+.spring-switch-wrapper {
+    position: absolute;
+    left: 12%;
+    /* Positioned hanging on the far left edge */
+    top: -2rem;
+    /* Hangs straight down from the top edge */
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.spring-switch-container {
+    position: relative;
+}
+
+.switch-cord {
+    width: 3px;
+    height: 250px;
+    /* Base idle length */
+    background-color: var(--dark);
+    position: relative;
+    /* Anchors the handle strictly to the cord */
+    transform-origin: top;
+    margin: 0 auto;
+}
+
+.switch-handle {
+    position: absolute;
+    bottom: -12px;
+    /* Perfect vertical overlap over the bottom edge of the cord */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+    pointer-events: auto;
+}
+
+.switch-handle svg {
+    display: block;
+}
+
+.switch-handle:active {
+    cursor: grabbing;
+}
+
+.vertical-switch-text {
+    position: absolute;
+    top: calc(250px + 8rem);
+    left: -15px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #666;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-align: left;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+    /* Fade out when zooming */
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN (MEDIA QUERIES)         */
+/* ========================================= */
+
+/* Tablet (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .brand-title {
+        font-size: 5rem;
+    }
+
+    .hero-logo {
+        width: 100%;
+        margin-left: 2rem;
+        margin-top: -6rem;
+    }
+
+    .second-section {
+        padding: 6rem 2rem;
+    }
+
+    .main-heading {
+        font-size: 2rem;
+        position: relative;
+        top: 0;
+        margin-bottom: 2rem;
+    }
+
+    .scroll-fill-text {
+        font-size: 1.8rem;
+    }
+
+    .desk-img {
+        max-width: 100%;
+        transform: scale(0.9) translateY(0);
+    }
+
+    .spring-switch-wrapper {
+        left: 5%;
+    }
+
+    .vertical-switch-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .brand-title {
+        font-size: 3.5rem;
+    }
+
+    .brand-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-logo {
+        margin-left: 0;
+        margin-top: -4rem;
+        width: 110%;
+        /* Bleed slightly for impact */
+    }
+
+    .hero {
+        padding-top: 4rem;
+    }
+
+    .header-text {
+        margin-top: 0;
+    }
+
+    .fade-content {
+        padding-bottom: 2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1.5rem;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .trusted-title {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .carousel-logo {
+        font-size: 1.4rem;
+        margin: 0 1.5rem;
+    }
+
+    /* Second Section Stack */
+    .second-container {
+        flex-direction: column;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .text-content {
+        padding-right: 0;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-heading {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        font-size: 1.8rem;
+    }
+
+    .scroll-fill-text {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .roll-up-footer {
+        margin-top: 2rem;
+        align-items: center;
+    }
+
+    .roll-up-text {
+        font-size: 0.9rem;
+        justify-content: center;
+    }
+
+    .image-content {
+        justify-content: center;
+    }
+
+    .desk-img {
+        transform: scale(1) translateY(0);
+        transform-origin: center center;
+    }
+
+    /* Third Section Adjustments */
+    .spring-switch-wrapper {
+        left: 5%;
+        top: -1rem;
+    }
+
+    .switch-cord {
+        height: 150px;
+        /* Shorter cord for mobile */
+    }
+
+    .vertical-switch-text {
+        top: calc(150px + 6rem);
+        font-size: 1.2rem;
+        left: -10px;
+    }
+
+    .fixed-nav {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust monitor zoom origin for mobile if needed, but 50/50 is usually safe */
+    .interactive-container {
+        transform-origin: 50.4% 48.4%;
+        width: 100%;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .brand-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-logo {
+        margin-top: -2rem;
+    }
+}
+
+/* ================= GALLERY 3D SECTION ================= */
+.gallery-3d {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    /* Solid white background as requested */
+    overflow: hidden;
+    display: none;
+    /* Hidden until monitor turns on */
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    z-index: 4;
+    /* Sits above the sticky elements */
+}
+
+.gallery-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-family: var(--font-primary);
+    pointer-events: none;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 800;
+    margin: 0;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    /* White text with difference blend makes it black on white background, and inverts images flying behind it */
+}
+
+.gallery-tunnel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.tunnel-image {
+    /* Calculate precisely delayed starts out of a 16s repeating loop so they stream continuously */
+    --delay: calc((16s / 10) * (var(--index) - 1) - 16s);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 20rem;
+    /* Fixed card width based on Framer code */
+    height: calc(20rem / (16/9));
+    object-fit: cover;
+    will-change: transform;
+    opacity: 0;
+    cursor: pointer;
+
+    /* Core 3D Loop */
+    animation: move-3d 16s linear infinite, opacity-3d 16s linear infinite;
+    animation-delay: var(--delay);
+}
+
+.tunnel-image:hover {
+    animation-play-state: paused;
+    /* Hover to inspect */
+}
+
+/* Base math replicating odd/even splits driving the Z and offset depth */
+.tunnel-image.left-side {
+    /* random-x variance breaks the grid for a true scatter */
+    transform: translateZ(var(--translate-z)) translate(calc(-25rem + var(--random-x)), calc((var(--index) - 5.5) * 8rem));
+}
+
+.tunnel-image.right-side {
+    transform: translateZ(var(--translate-z)) translate(calc(25rem + var(--random-x)), calc((var(--index) - 5.5) * -8rem));
+}
+
+@property --translate-z {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: -3000px;
+}
+
+@keyframes opacity-3d {
+    0% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes move-3d {
+    0% {
+        opacity: 0;
+        --translate-z: -5000px;
+    }
+
+    100% {
+        --translate-z: 2000px;
+    }
+}
