@@ -1,5 +1,5 @@
 :root {
-    --neon-green: #B7FF70;
+    --neon-green: #d2f003;
     --dark: #1A1A1A;
     --white: #FFFFFF;
     --dot-color: #e5e5e5;
@@ -76,509 +76,10 @@ body {
     /* Drops down seamlessly with the text */
 }
 
-/* Stacking effect: Sticky wrapper */
-.hero-wrapper {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    z-index: 1;
-    overflow: hidden;
-    /* Dotted background on the bottom most layer */
-    background-color: var(--white);
-    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
-    background-size: 15px 15px;
-    background-position: center;
-}
-
-.hero {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 2rem;
-    position: relative;
-}
-
-/* ========================================= */
-/* BACKGROUND GRADIENTS (NEON GREEN SHADES)  */
-/* ========================================= */
-
-.top-gradients-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 85vh;
-    /* Reaches down behind the hero but fades out */
-    overflow: hidden;
-    z-index: 0;
-    pointer-events: none;
-    display: none;
-    /* User disabled for now */
-    /* Soft fade perfectly to white at the bottom */
-    mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
-    background: transparent;
-    /* No dark color, fades purely into var(--white) */
-}
-
-/* Add shiny glass reflection overlay */
-.noise-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Replaced grainy shade with a shiny glass finish */
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.4) 100%);
-    mix-blend-mode: screen;
-    /* Boosts the bright shiny highlights dynamically over the colors */
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* Gradient Blobs that flow and drop waves */
-.gradient-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.9;
-    animation: flowWave 4s infinite alternate ease-in-out;
-    /* Accelerated native speed securely mapping request */
-}
-
-.blob-1 {
-    top: -150px;
-    left: -10%;
-    width: 70vw;
-    height: 500px;
-    background: #4ade80;
-    /* Deep vibrant green */
-    animation-delay: 0s;
-}
-
-.blob-2 {
-    top: -200px;
-    left: 20%;
-    width: 60vw;
-    height: 600px;
-    background: #b7ff70;
-    /* Neon green (Pixcross main theme) */
-    animation-delay: -3s;
-    animation-duration: 7s;
-    /* Offset fluid speed */
-}
-
-.blob-3 {
-    top: -100px;
-    right: -10%;
-    width: 60vw;
-    height: 500px;
-    background: #86efac;
-    /* Bright light green */
-    animation-delay: -5s;
-    opacity: 0.6;
-}
-
-.blob-4 {
-    top: -180px;
-    left: 50%;
-    width: 70vw;
-    height: 550px;
-    background: #22c55e;
-    /* Rich lime green */
-    animation-delay: -2s;
-}
-
-/* Drops waves downwards randomly */
-.blob-5 {
-    top: -50px;
-    left: 35%;
-    width: 40vw;
-    height: 400px;
-    background: #d9f99d;
-    /* Pale mint green */
-    animation: dropWaves 1.5s infinite alternate ease-in-out;
-    /* Increased vertical drop speed heavily */
-}
-
-@keyframes flowWave {
-    0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-    }
-
-    33% {
-        transform: translate(140px, -80px) scale(1.15) rotate(15deg);
-    }
-
-    66% {
-        transform: translate(-100px, 100px) scale(0.85) rotate(-10deg);
-    }
-
-    100% {
-        transform: translate(80px, -50px) scale(1.1) rotate(8deg);
-    }
-}
-
-@keyframes dropWaves {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: translateY(180px) scale(1.2);
-        opacity: 0.4;
-    }
-}
-
-/* Top brand text to match the provided image */
-.header-text {
-    position: relative;
-    /* Required to activate z-index */
-    margin-top: calc(4rem - 60px);
-    text-align: center;
-    z-index: 5;
-}
-
-.brand-title {
-    font-size: 6.5rem;
-    font-weight: 900;
-    color: var(--dark);
-    line-height: 1;
-    letter-spacing: -0.04em;
-}
-
-.brand-subtitle {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-top: 0.5rem;
-    letter-spacing: -0.01em;
-}
-
-/* Large central logo */
-.hero-logo {
-    position: relative;
-    /* Required to activate z-index */
-    width: 90%;
-    max-width: 1200px;
-    height: auto;
-    margin-top: -8rem;
-    margin-left: 4rem;
-    z-index: 5;
-    pointer-events: none;
-}
-
-/* Strong white up fade overlay */
-.white-fade {
-    position: absolute;
-    bottom: -5px;
-    /* Ensures no gap at the bottom */
-    left: 0;
-    width: 100%;
-    height: 60%;
-    /* Gradient from solid white at bottom to transparent at top */
-    background: linear-gradient(to top,
-            rgba(255, 255, 255, 1) 35%,
-            rgba(255, 255, 255, 0.8) 55%,
-            rgba(255, 255, 255, 0) 100%);
-    z-index: 10;
-    pointer-events: none;
-    /* Let clicks pass through if needed */
-}
-
-/* Content container placed inside the white fade region */
-.fade-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 3.5rem;
-    z-index: 20;
-}
-
-/* Buttons */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 2rem;
-    /* Valid padding to keep them away from the screen edges */
-    margin-bottom: 1rem;
-    /* Reduced from 3rem to push the buttons further down */
-}
-
-.btn {
-    background-color: var(--dark);
-    color: var(--white);
-    border: 2px solid var(--dark);
-    padding: 0.9rem 1.8rem;
-    border-radius: 9999px;
-    /* Fully rounded */
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--white);
-    color: var(--dark);
-}
-
-/* Carousel Section */
-.trusted-section {
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
-    position: relative;
-}
-
-.trusted-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-bottom: 1.2rem;
-}
-
-.carousel-container {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-    /* Side fades for the carousel */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-
-.carousel-track {
-    display: inline-flex;
-    animation: scroll 25s linear infinite;
-    align-items: center;
-}
-
-.carousel-logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--dark);
-    opacity: 0.6;
-    margin: 0 3rem;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Second Section (White with grid) */
-.second-section {
-    position: relative;
-    z-index: 2;
-    /* Stacks on top of sticky hero wrapper */
-    background-color: var(--white);
-    min-height: 100vh;
-    border-radius: 0 0 0 0;
-    /* Small grid pattern with low opacity */
-    background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.08);
-    padding: 8rem 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    /* Contains the blurry blobs */
-}
-
-/* Green blurry blobs */
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: -1;
-    /* Behind the content, but above the background grid */
-    opacity: 0.7;
-    transition: transform 15s ease-in-out;
-}
-
-.blob-1 {
-    width: 900px;
-    height: 900px;
-    background: radial-gradient(circle, rgba(134, 214, 54, 0.45) 0%, rgba(183, 255, 112, 0) 70%);
-    top: -10%;
-    right: 5%;
-    filter: blur(30px);
-}
-
-.blob-2 {
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(183, 255, 112, 0.25) 0%, rgba(183, 255, 112, 0) 70%);
-    bottom: -5%;
-    left: -5%;
-    filter: blur(20px);
-}
-
-@keyframes float-1 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    33% {
-        transform: translate(60px, 40px) scale(1.05);
-    }
-
-    66% {
-        transform: translate(-40px, 80px) scale(0.95);
-    }
-
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-}
-
-@keyframes float-2 {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    33% {
-        transform: translate(-50px, -60px) scale(0.95);
-    }
-
-    66% {
-        transform: translate(30px, -90px) scale(1.05);
-    }
-
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-}
-
-/* Container */
-.second-container {
-    max-width: 1400px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-}
-
-/* Text Side */
-.text-content {
-    flex: 1.2;
-    max-width: 700px;
-    padding-right: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.main-heading {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--dark);
-    letter-spacing: -0.02em;
-    margin: 0;
-    position: absolute;
-    top: 1rem;
-    /* Moved up as per mockup */
-    left: 0;
-}
-
-/* Scroll Fill Effect */
-.scroll-fill-container {
-    position: relative;
-}
-
-.scroll-fill-text {
-    font-size: 2.2rem;
-    font-weight: 800;
-    line-height: 1.05;
-    margin: 0;
-    top: 2rem;
-    letter-spacing: -0.01em;
-    color: #cccccc;
-    /* Base light grey */
-    transition: color 0.2s ease;
-}
-
-.scroll-fill-text span {
-    transition: color 0.1s ease;
-}
-
-.scroll-fill-text span.filled {
-    color: #1e1e1e;
-    /* Final dark color */
-}
-
-/* Roll Up Footer */
-.roll-up-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    margin-top: 4rem;
-}
-
-.roll-up-text {
-    font-size: 1.1rem;
-    font-weight: 800;
-    margin: 0;
-    overflow: hidden;
-    /* For the word slide up */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.roll-up-text.highlight {
-    color: var(--green);
-}
-
-.roll-up-word {
-    display: inline-block;
-    transform: translateY(110%);
-    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-.roll-up-text.active .roll-up-word {
-    transform: translateY(0);
-}
-
-/* Image Side */
-.image-content {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.desk-img {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    object-fit: contain;
-    transform: scale(0.85) translateY(-30px);
-    /* Scaled down and moved up 30px */
-    transform-origin: right center;
-}
-
 /* Zoom Scroll Mechanics */
+/* ========================================= */
+/* ZOOM SCROLL MECHANICS                     */
+/* ========================================= */
 .zoom-scroll-container {
     position: relative;
     /* Initially locked to 100vh to prevent scrolling past until monitor turns on */
@@ -843,115 +344,10 @@ body {
     display: block;
 }
 
-/* Our Work Section & Infinity Carousel */
-.our-work-section {
-    background-color: var(--white);
-    padding: 10rem 0;
-    overflow: hidden;
-    /* Hide overflow from the sides of the carousel */
-    display: none;
-    /* Hidden until monitor is turned on */
-    position: relative;
-    z-index: 4;
-    /* Sits above the sticky hero-wrapper (z-index: 1) and third-section (z-index: 3) */
-}
-
-.our-work-section .section-title {
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--dark);
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    letter-spacing: -0.02em;
-}
-
-.work-carousel-container {
-    width: 100vw;
-    overflow: hidden;
-    /* Hide the scrollbar, we manage scrolling via transform */
-    cursor: grab;
-    user-select: none;
-    touch-action: pan-y;
-    /* Allow vertical scroll to pass through, but handle horizontal drag */
-}
-
-.carousel-wrapper {
-    position: relative;
-    width: 100vw;
-}
-
-.carousel-oval {
-    position: absolute;
-    left: 0;
-    width: 100vw;
-    height: 100px;
-    background-color: var(--white);
-    border-radius: 50%;
-    pointer-events: none;
-    /* Let clicks pass through to drag the carousel */
-    z-index: 10;
-}
-
-.top-oval {
-    top: 0;
-    transform: translateY(-50%);
-}
-
-.bottom-oval {
-    bottom: 0;
-    transform: translateY(50%);
-}
-
-.work-carousel-container:active {
-    cursor: grabbing;
-}
-
-.work-carousel-track {
-    display: flex;
-    gap: 2rem;
-    /* Gap between images */
-    width: max-content;
-    will-change: transform;
-    /* Hardware acceleration for smooth drag */
-    padding: 0 2rem;
-    /* Initial side padding */
-}
-
-.carousel-item {
-    flex-shrink: 0;
-    width: 400px;
-    height: 400px;
-    background-color: #f0f0f0;
-    /* Placeholder color while loading */
-    border-radius: 0;
-    /* Roundness set to zero */
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    pointer-events: none;
-    /* Crucial for dragging: don't let the browser try to drag the image file */
-}
-
-/* Responsive carousel image sizing */
-@media (max-width: 768px) {
-    .carousel-item {
-        width: 250px;
-        height: 250px;
-    }
-
-    .our-work-section .section-title {
-        font-size: 3rem;
-    }
-}
-
 /* Spring Switch Area */
+/* ========================================= */
+/* SPRING SWITCH AREA                        */
+/* ========================================= */
 .spring-switch-wrapper {
     position: absolute;
     left: 12%;
@@ -964,8 +360,49 @@ body {
     align-items: flex-start;
 }
 
+.third-section.visible .spring-switch-container {
+    animation: cordDropSpring 1.2s forwards;
+    /* Optional slight delay so it drops down after you notice the section */
+    animation-delay: 0.2s;
+}
+
+@keyframes cordDropSpring {
+    0% {
+        transform: translateY(-500px);
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateY(30px);
+        animation-timing-function: ease-out;
+    }
+
+    65% {
+        transform: translateY(-15px);
+        animation-timing-function: ease-in-out;
+    }
+
+    85% {
+        transform: translateY(5px);
+        animation-timing-function: ease-in-out;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .spring-switch-container {
     position: relative;
+    transform: translateY(-500px);
+    /* Initially hidden above the ceiling */
+    opacity: 0;
 }
 
 .switch-cord {
@@ -1201,6 +638,9 @@ body {
 }
 
 /* ================= GALLERY 3D SECTION ================= */
+/* ========================================= */
+/* 3D GALLERY SECTION                        */
+/* ========================================= */
 .gallery-3d {
     position: relative;
     width: 100%;
@@ -1309,4 +749,524 @@ body {
     100% {
         --translate-z: 2000px;
     }
+}
+
+/* ================= CYCLE ANIMATION SECTION ================= */
+.cycle-scroll-container {
+    position: relative;
+    width: 100%;
+    height: 400vh;
+    /* 4x height for 127 frames of smooth scrolling */
+    background-color: #000;
+    /* Assuming black background for transition, adjust if needed */
+    z-index: 5;
+    /* Hidden initially until monitor turns on, similar to gallery-3d */
+    display: none;
+}
+
+/* ========================================= */
+/* CYCLE ANIMATION SECTION                   */
+/* ========================================= */
+.cycle-sticky-section {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cycle-canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the frame covers the entire screen perfectly */
+    pointer-events: none;
+    /* Let scroll pass through */
+    will-change: transform, opacity;
+}
+
+/* ========================================= */
+/* NEW HERO AND MOTTO SECTIONS               */
+/* ========================================= */
+
+.hero-new {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 7px 7px 40px 7px;
+    background-color: var(--white);
+    position: relative;
+    z-index: 2;
+    /* Sits above sticky */
+}
+
+.hero-container-new {
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Container Image Placeholder */
+.image-placeholder-new {
+    width: 100%;
+    height: 550px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    position: relative;
+    overflow: hidden;
+    /* Removed box-shadow */
+}
+
+/* Removed .image-placeholder-new:hover scale effect to preserve pure CSS parallax */
+
+.hero-image-new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url('images/hero_image.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    transition: filter 0.4s ease;
+}
+
+.image-placeholder-new:hover .hero-image-new {
+    filter: brightness(1.1);
+    /* Slightly brighter on hover instead of scaling to avoid breaking fixed attachment */
+}
+
+.hero-title-new {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    z-index: 2;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Buttons */
+/* ========================================= */
+/* BUTTONS                                   */
+/* ========================================= */
+.hero-buttons-new {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+}
+
+.btn-new {
+    flex: 1;
+    padding: 24px 30px;
+    border-radius: 14px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.2, 1, 0.3, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: -0.02em;
+    position: relative;
+    /* Soft top highlight for 3D depth */
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.15),
+        0 15px 35px -10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-dark-new {
+    background-color: #0b0c10;
+    color: var(--white);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.1),
+        0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-light-new {
+    background-color: var(--neon-green);
+    color: var(--dark);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        0 20px 40px -10px rgba(210, 240, 3, 0.5);
+    /* Neon green realistic shadow */
+}
+
+/* Hover Interaction: Moves 4px up */
+.btn-new:hover {
+    transform: translateY(-4px);
+}
+
+.btn-dark-new:hover {
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.1),
+        0 30px 50px -10px rgba(0, 0, 0, 0.6);
+}
+
+.btn-light-new:hover {
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        0 30px 50px -10px rgba(210, 240, 3, 0.6);
+}
+
+/* Active Interaction: Moves 4px down from hover (back to 0) */
+.btn-new:active {
+    transform: translateY(0px);
+}
+
+.btn-dark-new:active {
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.1),
+        0 10px 20px -10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-light-new:active {
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        0 10px 20px -10px rgba(210, 240, 3, 0.5);
+}
+
+/* Trusted By Section */
+.trusted-section-new {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.trusted-text-new {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #888;
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.carousel-wrapper-new {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-container-new {
+    width: 100%;
+    max-width: 500px;
+    /* Restrict width to keep logos clustered */
+    overflow: hidden;
+    position: relative;
+    padding: 0px 0;
+}
+
+.carousel-track-new {
+    display: flex;
+    gap: 50px;
+    width: max-content;
+    align-items: center;
+    animation: scrollCarousel 12s linear infinite;
+}
+
+.logo-item-new {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-black);
+    text-transform: lowercase;
+    letter-spacing: -0.04em;
+}
+
+
+.fade-left-new,
+.fade-right-new {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade-left-new {
+    left: 0;
+    background: linear-gradient(to right, var(--white) 0%, transparent 100%);
+}
+
+.fade-right-new {
+    right: 0;
+    background: linear-gradient(to left, var(--white) 0%, transparent 100%);
+}
+
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 40px));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-buttons-new {
+        flex-direction: column;
+    }
+
+    .hero-title-new {
+        font-size: 12vw;
+    }
+
+    .image-placeholder-new {
+        height: 400px;
+    }
+}
+
+/* --- Motto Section --- */
+.motto-new {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+    background-color: var(--white);
+    position: relative;
+    z-index: 2;
+    border-bottom: 15px solid var(--neon-green);
+}
+
+.motto-container-new {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    align-items: stretch;
+}
+
+.motto-left-new {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.motto-placeholder-new {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(to bottom, #f2ffb0 0%, #ffffff 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    /* Removed box-shadow */
+}
+
+.motto-image-new {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.motto-placeholder-new:hover .motto-image-new {
+    transform: scale(1.05);
+}
+
+.motto-right-new {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.motto-title-new {
+    font-weight: 900;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    font-family: 'League Spartan', 'Placard Next', sans-serif;
+    line-height: 0.95;
+    /* Tighter line height like image */
+}
+
+.motto-title-new>span {
+    letter-spacing: -0.04em;
+    /* Less squished spacing for this font */
+    transform-origin: left top;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect removed as per request */
+
+.motto-title-new .line1 {
+    font-size: clamp(3rem, 6vw, 7.5rem);
+    margin-bottom: 10px;
+    /* Spacing between lines */
+}
+
+.motto-title-new .line2 {
+    font-size: clamp(3rem, 6vw, 7.5rem);
+    margin-bottom: 0px;
+}
+
+.exclamation {
+    color: var(--dark);
+    display: inline;
+}
+
+.motto-footer-new {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    margin-top: 50px;
+    padding-top: 0px;
+    border-top: none;
+}
+
+.motto-text-new {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.motto-btn-new {
+    padding: 16px 80px;
+    border-radius: 100px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    flex: none;
+}
+
+@media (max-width: 1100px) {
+    .motto-container-new {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .motto-footer-new {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+/* Animations for Hero & Motto */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleInFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-placeholder-new {
+    animation: scaleInFade 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.hero-title-new {
+    animation: slideUpFade 1s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.4s;
+    opacity: 0;
+}
+
+.hero-buttons-new .btn-new {
+    animation: slideUpFade 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.hero-buttons-new .btn-new:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.hero-buttons-new .btn-new:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+.trusted-section-new {
+    animation: slideUpFade 1s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.9s;
+    opacity: 0;
+}
+
+/* Scroll Animations for Motto */
+.motto-placeholder-new {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.motto-placeholder-new.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.motto-title-new>span {
+    opacity: 0;
+    transform: translateY(40px) scaleY(1.4);
+    transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), color 0.3s ease;
+}
+
+.motto-title-new.visible>span:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0) scaleY(1.4);
+    transition-delay: 0s;
+}
+
+.motto-title-new.visible>span:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0) scaleY(1.4);
+    transition-delay: 0.1s;
+}
+
+.motto-title-new.visible>span:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0) scaleY(1.4);
+    transition-delay: 0.2s;
+}
+
+.motto-footer-new {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1) 0.3s, transform 0.8s cubic-bezier(0.2, 1, 0.3, 1) 0.3s;
+}
+
+.motto-footer-new.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

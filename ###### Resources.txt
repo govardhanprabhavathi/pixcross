@@ -1,0 +1,149 @@
+###### Resources
+[Desktop app](https://www.framer.com/downloads/)
+[Marketplace](https://www.framer.com/marketplace/)
+[Community](https://www.framer.community/)
+[Developers](https://www.framer.com/developers/)
+[Wallpapers](https://www.framer.com/wallpapers/)
+[Meetups](https://www.framer.com/meetups/)
+
+###### Company
+[Security](https://www.framer.com/security/)
+[Careers](https://www.framer.com/careers/)
+[Report](mailto:abuse@framer.com)
+[Status](https://www.framerstatus.com/)
+[Legal](https://www.framer.com/legal/terms-of-service/)
+[Blog](https://www.framer.com/blog/)
+
+###### Creators
+[Program](https://www.framer.com/creators/)
+[Payouts](https://www.framer.com/help/articles/how-affiliate-links-work/)
+[Experts](https://www.framer.com/experts/)
+[Awards](https://www.framer.com/awards/)
+[Events](https://www.framer.com/events/)
+[Brand](https://www.framer.com/brand/)
+
+###### Compare
+[Squarespace](https://www.framer.com/compare/framer-vs-squarespace/)
+[Wordpress](https://www.framer.com/compare/framer-vs-wordpress/)
+[Unbounce](https://www.framer.com/compare/framer-vs-unbounce/)
+[Webflow](https://www.framer.com/compare/framer-vs-webflow/)
+[Figma](https://www.framer.com/compare/framer-vs-figma/)
+[Wix](https://www.framer.com/compare/framer-vs-wix/)
+
+###### Solutions
+[Figma to HTML](https://www.framer.com/solutions/figma-to-html/)
+[Website builder](https://www.framer.com/solutions/website-builder/)
+[Portfolio maker](https://www.framer.com/solutions/portfolio-website/)
+[Landing pages](https://www.framer.com/solutions/landing-pages/)
+[UI/UX design](https://www.framer.com/solutions/ui-ux-design/)
+[No-code](https://www.framer.com/solutions/no-code-website-builder/)
+
+###### Socials
+[Instagram](https://www.instagram.com/framer/)
+[X Twitter](https://twitter.com/framer/)
+[YouTube](https://www.youtube.com/@framer/)
+[LinkedIn](https://www.linkedin.com/company/framer/)
+[Threads](https://www.threads.net/@framer/)
+[TikTok](https://www.tiktok.com/@framer/)
+[Marketplace](https://www.framer.com/marketplace/)
+[Components](https://www.framer.com/marketplace/components/)
+[Categories](https://www.framer.com/marketplace/components/category/)
+[Carousels](https://www.framer.com/marketplace/components/category/carousels/)
+
+# SpiralPath — visually striking gallery
+
+#### This component features a visually striking spiral gallery of images, animating them in a floating, rotating spiral around a center point
+[Framer](https://www.framer.com)
+[Enterprise](https://www.framer.com/enterprise)
+[Pricing](https://www.framer.com/pricing)
+[Log in](https://login.framer.com/?origin=framer-web&redirect=https://www.framer.com/marketplace/)
+[Sign up](https://framer.com/r/signup/)
+[Enterprise](https://www.framer.com/enterprise)
+[Pricing](https://www.framer.com/pricing)
+[Log in](https://login.framer.com/?origin=framer-web&redirect=https://www.framer.com/marketplace/)
+[Sign up](https://framer.com/r/signup/)
+[Marketplace](https://www.framer.com/marketplace/)
+[Templates](https://www.framer.com/marketplace/templates/)
+[Plugins](https://www.framer.com/marketplace/plugins/)
+[Components](https://www.framer.com/marketplace/components/)
+[Vectors](https://www.framer.com/marketplace/vectors/)
+[Tutorials](https://www.framer.com/marketplace/tutorials/)
+[Templates](https://www.framer.com/marketplace/templates/)
+[Plugins](https://www.framer.com/marketplace/plugins/)
+[Components](https://www.framer.com/marketplace/components/)
+[Vectors](https://www.framer.com/marketplace/vectors/)
+[Tutorials](https://www.framer.com/marketplace/tutorials/)
+
+## About this component 🎛️
+Displays a spiral pattern of images or Framer components, revolving around a central area. Images smoothly rotate in 3D and fade to create a sense of depth.
+
+## Key Features ✨
+- Users can choose between displaying images or linked items
+- Fine-grained control over appearance, spiral geometry, and animation speed
+- The fade-in and fade-out effects add depth and focus to the gallery
+- Highly customizable spiral layout with smooth animation and depth effects
+- Supports both static images and dynamic Framer components as spiral items
+Users can choose between displaying images or linked items
+Fine-grained control over appearance, spiral geometry, and animation speed
+The fade-in and fade-out effects add depth and focus to the gallery
+Highly customizable spiral layout with smooth animation and depth effects
+Supports both static images and dynamic Framer components as spiral items
+
+## Perfect for 🔥
+Creative portfolios, hero sections, or interactive galleries that need to stand out. Use cases: creative agency landing pages, product showcases, or interactive art portfolios.
+
+## Questions❓
+If you have any questions or need clarification, feel free to reach out before completing your order. [hello@8ighty8.studio](mailto:hello@8ighty8.studio)
+Follow me on X [@8ighty8studio](https://x.com/8ighty8studio)
+
+## Support 🫶
+If you find this component useful, and want to support me. You can [buy me coffee 😊](https://buymeacoffee.com/8ighty8)
+
+###### Details
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+
+###### Category
+[Carousels](https://www.framer.com/marketplace/components/category/carousels/)
+
+###### Support
+[About Components](https://www.framer.com/help/articles/using-components/)
+[Refund Policy](https://www.framer.com/help/articles/how-refunds-work-on-the-marketplace/)
+[Contact Creator](mailto:hello@8ighty.studio)
+
+## More Components
+[See All →](https://www.framer.com/marketplace/components/)
+[Iphone Insta Stories](https://www.framer.com/marketplace/components/iphone-insta-stories/)
+[Frame Craft](https://www.framer.com/@frame-craft/)
+[Flying 3D Gallery](https://www.framer.com/marketplace/components/flying-3d-gallery/)
+[RAMDIN SINGH](https://www.framer.com/@ramdin-singh/)
+[Masked Text Reveal](https://www.framer.com/marketplace/components/masked-text-reveal/)
+[levindbr](https://www.framer.com/@levindbr/)
+[Rotating Text Navbar](https://www.framer.com/marketplace/components/rotating-text-navbar/)
+[Erica Humphrey](https://www.framer.com/@erica-humphrey/)
+[Page Preloader](https://www.framer.com/marketplace/components/page-preloader/)
+[Artem Kostenko](https://www.framer.com/@artem-kostenko/)
+[Sampling](https://www.framer.com/marketplace/components/sampling/)
+[Jay Ji](https://www.framer.com/@jay-ji/)
+[Elastic Menu Pro](https://www.framer.com/marketplace/components/elastic-menu-pro/)
+[Minjoo Kim](https://www.framer.com/@minjoo-kim-j8bshr/)
+[Smart Rotate Gallery](https://www.framer.com/marketplace/components/smart-rotate-gallery/)
+[Martina Gazenova](https://www.framer.com/@martina-gazenova/)
+
+## More from 8ighty8.studio
+[See All →](https://www.framer.com/@8ighty8studio/)
+[IconTrail](https://www.framer.com/marketplace/components/icontrail/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[FrameReview](https://www.framer.com/marketplace/plugins/framereview/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[PageProgress](https://www.framer.com/marketplace/components/pageprogress/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[PerspectiveGrid](https://www.framer.com/marketplace/components/perspectivegrid/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[ChromaticHover](https://www.framer.com/marketplace/components/chromatichover/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[LetterMorph](https://www.framer.com/marketplace/components/lettermorph/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[TextEmbed](https://www.framer.com/marketplace/components/text-embed/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
+[LiveText](https://www.framer.com/marketplace/components/livetext/)
+[8ighty8.studio](https://www.framer.com/@8ighty8studio/)
