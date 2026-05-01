@@ -560,7 +560,7 @@ body {
 .our-work-section {
     width: 100%;
     background-color: var(--white);
-    padding: 10rem 0;
+    padding: 5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
