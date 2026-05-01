@@ -299,9 +299,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Boundaries
                 const zoomEndScroll = window.innerHeight * 3; // 300vh (Zoom finishes)
                 const blendEndScroll = window.innerHeight * 4; // 400vh (Blend finishes)
-                const maxScroll = window.innerHeight * 8; // 800vh (End of sequence - shorter for 118 frames)
-                const holdScroll = window.innerHeight * 9.5; // 950vh (Delay buffer)
-                const titlesEndScroll = window.innerHeight * 14; // 1400vh (End of cinematic titles)
+                const maxScroll = window.innerHeight * 7.5; // 750vh (End of sequence)
+                const holdScroll = window.innerHeight * 8.5; // 850vh (Delay buffer)
+                const titlesEndScroll = window.innerHeight * 11.5; // 1150vh (End of cinematic titles)
 
                 if (scrollDistance < 0) {
                     zoomTarget.style.transform = 'scale(1)';
